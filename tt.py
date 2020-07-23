@@ -8,11 +8,14 @@ import numpy as np
 def func(x):
     i = 0
     fu = 0
-    while i < 20:
-        fu =+ x[i]
-        #fu += x[i] ** 2 - 10 * math.cos(2 * math.pi * x[i]) + 10
+    while i < 20-1:
+        #fu =+ x[i]
+        fu += x[i] ** 2 - 10 * math.cos(2 * math.pi * x[i]) + 10
+        #fu += x[i]**2
+        #fu += 100*(x[i]**2-x[i+1])-(x[i]-1)
         i += 1
     return fu
+    #return x[0]**2 + math.pow(10, 6) * fu
 
 
 arr = np.random.rand(30, 20)
@@ -35,11 +38,11 @@ j = 0
 dt = h5py.string_dtype(encoding='ASCII')
 
 
-arr_mes = np.chararray(20)
+arr_mes = np.chararray(20, itemsize=4)
 while j < 20:
     arr_mes[j] = 'x'+str(j)
     j += 1
-arr2_species = np.chararray(30)
+arr2_species = np.chararray(30, itemsize=4)
 for j in range(30):
     arr2_species[j] = 'y'+str(j)
 # arr_mes = np.array(arr_mes, dtype="V")
